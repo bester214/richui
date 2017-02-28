@@ -1,0 +1,175 @@
+/*@charset="UTF-8";
+旧版分享弹窗模板
+#zhezhao{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,.5);
+	z-index:999;
+	top:0;
+	left:0;
+}
+#shareBox{
+	position:fixed;
+	width:100%;
+	height:auto;
+	display:inline-block;
+	padding-bottom: 15px;
+	bottom:0;
+	left:0;
+	background:#fff;
+	z-index: 1000;*/
+	/*transition:all 5s linear;*/	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+/*}*/
+
+/*#shareBox h1{
+	padding-left: 10px;
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+.shareIcons {
+	width:100%;
+	margin:15px 0;
+	height:auto;
+	display:inline-block;
+}
+.shareIcons span{
+	display:block;
+	text-align: center;
+	width:25%;
+	float: left;
+	font-size: 12px;
+}
+.shareIcons span i{
+	display:inline-block;
+	width:100%;
+	height:50px;
+	background:url(../images/shareIcon.png) no-repeat;
+	background-size: 50px;
+}*/
+/*微信好友*/
+/*.shareIcons span:first-child i{
+	background-position: center -50px;
+}*/
+/*微信朋友圈*/
+/*.shareIcons span:nth-child(2) i{
+	background-position: center -100px;
+}*/
+/*微博*/
+/*.shareIcons span:nth-child(3) i{
+	background-position: center 0;
+}*/
+/*短信*/
+/*.shareIcons span:nth-child(4) i{
+	background-position: center -150px;
+}
+.closeShare{
+	border:1px solid #ccc;
+	height:36px;
+	width:90%;
+	color:orange;
+	line-height: 36px;
+	text-align: center;
+	margin:0 auto;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	-ms-border-radius: 18px;
+	-o-border-radius: 18px;
+	border-radius: 18px;
+}
+
+.warmhint{ font-size:11px; color:#999; text-align:center; padding-bottom:17px;}*/
+
+
+
+/*新分享弹窗模板*/
+
+@charset="UTF-8";
+#zhezhao{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,.5);
+	z-index:999;
+	top:0;
+	left:0;
+
+}
+#shareBox{
+	position:fixed;
+	width:100%;
+	height:auto;
+	display:inline-block;
+	/*padding-bottom: 15px;*/
+	bottom:0;
+	left:0;
+	background:rgba(255,255,255,.95);
+	z-index: 1000;
+	/*transition:all 5s linear;*/	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+}
+#shareBox h1{
+	font-size: 0.85rem;
+	padding:1.0rem 0 0 0.75rem;
+	font-weight: bold;
+	color:#333;
+}
+
+.shareIcons {
+	width:100%;
+	margin:0.65rem 0 0.4rem 0;
+	height:auto;
+	display:inline-block;
+	text-align: center;
+}
+.shareIcons span{
+	display:block;
+	width: 3.0rem;
+	height: 3.0rem;
+	float: left;
+	margin-left:0.75rem;
+	text-align: center;
+}
+.shareIcons span i{
+	display:inline-block;
+	background:url(../images/shareIcons.png) no-repeat;
+	width: 100%;
+	height: 100%;
+	background-size:3.0rem 12.0rem;
+}
+.shareIcons span b{
+	font-weight: normal;
+	text-align: center;
+	display: inline-block;
+	font-size: 0.55rem;
+	color:#666;
+}
+/*微信好友*/
+.shareIcons span:first-child i{
+	background-position: 0 0px;
+}
+/*微信朋友圈*/
+.shareIcons span:nth-child(2) i{
+	background-position: 0 -3.0rem;
+}
+/*微博*/
+.shareIcons span:nth-child(3) i{
+	background-position: 0 -6.0rem;
+}
+/*短信*/
+.shareIcons span:nth-child(4) i{
+	background-position: 0 -9.0rem;
+}
+.closeShare{
+	width:100%;
+	height:2.2rem;
+	color:#339df5;
+	line-height: 2.2rem;
+	text-align: center;
+	margin:0 auto;
+	font-size: 0.75rem;
+	background-color: #fff;
+	border-top:1px solid #B2ADAD;
+}
+.warmhint{ font-size:0.45rem; color:#333; text-align:center; padding-bottom:0.65rem;padding-top:1.0rem;}
+

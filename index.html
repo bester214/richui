@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+<title>RichUI</title>
+<link rel="stylesheet" href="css/example.css"/>
+<link rel="stylesheet" href="css/richui.css"/>
+</head>
+<body ontouchstart>
+    <div class="container" id="container"></div>
+<script type="text/html" id="tpl_home">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">
+            RichUI
+        </h1>
+        <p class="page__desc">RichUI H5前端UI框架库 v2.0.1</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <ul>
+            <li class="js_show">
+                <div class="page__category js_categoryInner">
+                    <div class="richui-cells page__category-content">
+                        <a class="richui-cell richui-cell_access js_item" data-id="dialog" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Dialog 弹框</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                        <a class="richui-cell richui-cell_access js_item" data-id="toast" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Toast 弱提示</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="js_show">
+                <div class="page__category js_categoryInner">
+                    <div class="richui-cells page__category-content">
+                        <a class="richui-cell richui-cell_access js_item" data-id="Picker" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Picker 选择器</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="js_show">
+                <div class="page__category js_categoryInner">
+                    <div class="richui-cells page__category-content">
+                        <a class="richui-cell richui-cell_access js_item" data-id="icons" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Icons 图标</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                        <a class="richui-cell richui-cell_access js_item" data-id="loading" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Loading 加载</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                        <a class="richui-cell richui-cell_access js_item" data-id="list" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>List 列表</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                        <a class="richui-cell richui-cell_access js_item" data-id="flex" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Flex 布局</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                        <a class="richui-cell richui-cell_access js_item" data-id="footer" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Footer 页脚</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="js_show">
+                <div class="page__category js_categoryInner">
+                    <div class="richui-cells page__category-content">
+                        <a class="richui-cell richui-cell_access js_item" data-id="button" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Button 按钮</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                        <a class="richui-cell richui-cell_access js_item" data-id="input" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Input 输入框</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                        <a class="richui-cell richui-cell_access js_item" data-id="uploader" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>Uploader 图片上传</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="js_show">
+                <div class="page__category js_categoryInner">
+                    <div class="richui-cells page__category-content">
+                        <a class="richui-cell richui-cell_access js_item" data-id="construction" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>建设中页面</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                        <a class="richui-cell richui-cell_access js_item" data-id="error" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>错误页面</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="js_show">
+                <div class="page__category js_categoryInner">
+                    <div class="richui-cells page__category-content">
+                        <a class="richui-cell richui-cell_access js_item" data-id="share" href="javascript:;">
+                            <div class="richui-cell__bd share">
+                                <p>share 分享组件</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var winH = $(window).height();
+        var categorySpace = 10;
+
+        $('.js_item').on('click', function(){
+            var id = $(this).data('id');
+            window.pageManager.go(id);
+        });
+        $('.js_category').on('click', function(){
+            var $this = $(this),
+                $inner = $this.next('.js_categoryInner'),
+                $page = $this.parents('.page'),
+                $parent = $(this).parent('li');
+            var innerH = $inner.data('height');
+            bear = $page;
+
+            if(!innerH){
+                $inner.css('height', 'auto');
+                innerH = $inner.height();
+                $inner.removeAttr('style');
+                $inner.data('height', innerH);
+            }
+
+            if($parent.hasClass('js_show')){
+                $parent.removeClass('js_show');
+            }else{
+                $parent.siblings().removeClass('js_show');
+
+                $parent.addClass('js_show');
+                if(this.offsetTop + this.offsetHeight + innerH > $page.scrollTop() + winH){
+                    var scrollTop = this.offsetTop + this.offsetHeight + innerH - winH + categorySpace;
+
+                    if(scrollTop > this.offsetTop){
+                        scrollTop = this.offsetTop - categorySpace;
+                    }
+
+                    $page.scrollTop(scrollTop);
+                }
+            }
+        });
+    });
+</script>
+</script>
+<script type="text/html" id="tpl_button">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Button</h1>
+        <p class="page__desc">按钮:长度可以按需修改</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" class="richui-btn richui-btn_red">按钮</a>
+        <a href="javascript:;" class="richui-btn richui-btn_gray">按钮</a>
+        <a href="javascript:;" class="richui-btn richui-btn_blue">按钮</a>
+        <a href="javascript:;" class="richui-btn richui-btn_green">按钮</a>
+        <a href="javascript:;" class="richui-btn richui-btn_gray2">按钮</a>
+        <a href="javascript:;" class="richui-btn richui-btn_green2">按钮</a>
+        <a href="javascript:;" class="richui-btn richui-btn_orange">按钮</a>
+        <a href="javascript:;" class="richui-btn richui-btn_red2">按钮</a>
+        <a href="javascript:;" class="richui-btn richui-btn_purple">按钮</a>
+        <a href="javascript:;" class="richui-btn richui-btn_blue3">按钮</a>
+    </div>
+
+</div>
+</script>
+<script type="text/html" id="tpl_input">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Input</h1>
+        <p class="page__desc">表单输入</p>
+    </div>
+    <div class="page__bd">
+
+        <div class="richui-cells__title">文本框</div>
+        <div class="richui-cells">
+            <div class="richui-cell">
+                <div class="richui-cell__bd">
+                    <input class="richui-input" type="text" placeholder="请输入文本"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="richui-cells__title">文本域</div>
+        <div class="richui-cells richui-cells_form">
+            <div class="richui-cell">
+                <div class="richui-cell__bd">
+                    <textarea class="richui-textarea" placeholder="请输入文本" rows="3"></textarea>
+                    <div class="richui-textarea-counter"><span>0</span>/200</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $tooltips = $('.js_tooltips');
+
+        $('#showTooltips').on('click', function(){
+            if ($tooltips.css('display') != 'none') return;
+
+            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+            $('.page.cell').removeClass('slideIn');
+
+            $tooltips.css('display', 'block');
+            setTimeout(function () {
+                $tooltips.css('display', 'none');
+            }, 2000);
+        });
+    });
+</script>
+</script>
+<script type="text/html" id="tpl_toast">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Toast</h1>
+        <p class="page__desc">弱提示</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="showLoadingToast">加载中提示</a>
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="showLoadingToast2">弹框</a>
+    </div>
+
+    <!-- loading toast -->
+    <div id="loadingToast" style="display:none;">
+        <div class="richui-mask_transparent"></div>
+        <div class="richui-toast">
+            <i class="richui-loading richui-icon_toast"></i>
+            <p class="richui-toast__content">数据加载中</p>
+        </div>
+    </div>
+
+    <!--BEGIN toast2-->
+    <div id="loadingToast2" style="display: none;">
+        <div class="richui-mask_transparent"></div>
+        <div class="richui-toast2">
+            <p class="richui-toast__content">我是测试文字我是测试文字我是测我是测试文字我是测试文字我是测我是测试文字我是测试文字我是测我是测试文字我是测试文字我是测我是测试文字我是测试文字我是测我是测试文字我是测试文字我是测我是测试文字我是测试文字我是测我是测试文字我是测试文字我是测我是测试文字我是测试文字我</p>
+        </div>
+    </div>
+    <!--end toast-->
+</div>
+<script type="text/javascript">
+    $(function(){
+
+        // loading toast 
+        var $loadingToast = $('#loadingToast');
+        $('#showLoadingToast').on('click', function(){
+            if ($loadingToast.css('display') != 'none') return;
+
+            $loadingToast.fadeIn(100);
+            setTimeout(function () {
+                $loadingToast.fadeOut(100);
+            }, 3000);
+        });
+        $('#showLoadingToast2').on('click', function(){
+            showToast('我是测试文字！3秒后自动消失')
+        }); 
+    });
+</script>
+</script>
+<script type="text/html" id="tpl_dialog">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Dialog</h1>
+        <p class="page__desc">弹框</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="showDialog1">Dialog样式一</a>
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="showDialog2">Dialog样式二</a>
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="showDialog3">Dialog样式三</a>
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="showDialog4">Dialog样式四</a>
+    </div>
+
+
+    <div id="dialogs">
+        <div class="js_dialog" id="dialog1" style="display: none;">
+            <div class="richui-dialog" id="richui-dialog1" style="display:none;">
+                <div class="richui-dialog_title">提示</div>
+                <div class="richui-dialog_content">正在加载中...</div>
+                <div class="richui-dialog_btn">
+                    <a class="richui-dialog_sure" href="javascript:;" onclick="closeWindow();">确定</a>
+                </div>
+            </div>
+        </div>
+        <div class="js_dialog" id="dialog2" style="display: none;">
+            <div class="richui-dialog" id="richui-dialog2" style="display:none;">
+                <div class="richui-dialog_title">提示</div>
+                <div class="richui-dialog_content">正在加载中...</div>
+                <div class="richui-dialog_btn2">
+                    <a class="richui-dialog_cancel" href="javascript:;" onclick="closeWindow()">取消</a>
+                    <a class="richui-dialog_sure2" href="javascript:;"  onclick="closeWindow()">确定</a>
+                </div>
+            </div>
+        </div>
+        <div class="js_dialog" id="dialog3" style="display: none;">
+            <div class="richui-dialog" id="richui-dialog3" style="display:none;">
+                <div class="richui-dialog_rightImg"></div>
+                <div class="richui-dialog_content">正在加载中...</div>
+                <div class="richui-dialog_btn">
+                    <a class="richui-dialog_sure" href="javascript:;" onclick="closeWindow();">确定</a>
+                </div>
+            </div>
+        </div>
+        <div class="js_dialog" id="dialog4" style="display: none;">
+            <div class="richui-dialog" id="richui-dialog4" style="display:none;">
+                <div class="richui-dialog_errorImg"></div>
+                <div class="richui-dialog_content">正在加载中...</div>
+                <div class="richui-dialog_btn">
+                    <a class="richui-dialog_sure" href="javascript:;" onclick="closeWindow();">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $dialog1 = $('#dialog1'),
+            $dialog2 = $('#dialog2'),
+            $dialog3 = $('#dialog3'),
+            $dialog4 = $('#dialog4');
+
+        $('#dialogs').on('click', '.richui-dialog__btn', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
+
+        $('#showDialog1').on('click', function(){
+            openWindow1('我是测试文字我是测试文字');
+        });
+        $('#showDialog2').on('click', function(){
+            openWindow2('我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字');
+        });
+        $('#showDialog3').on('click', function(){
+            openWindow3('我是测试文字我是测试文字');
+        });
+        $('#showDialog4').on('click', function(){
+            openWindow4('我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字');
+        });
+    });
+</script>
+</script>
+<script type="text/html" id="tpl_Picker">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Picker</h1>
+        <p class="page__desc">选择器：分为单列 双列 三列选择器</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="picker1">Picker 单列选择</a>
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="picker2">Picker 双列选择</a>
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="picker3">Picker 三列选择</a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var data1=[{text:'杭州',value:1},{text:'宁波',value:2},{text:'温州',value:3},{text:'金华',value:4},{text:'衢州',value:5}];
+        var data2=[{text:'城东',value:'a'},{text:'城南',value:'b'},{text:'城西',value:'c'},{text:'城北',value:'d'}];
+        var data3=[{text:'余记',value:'s'},{text:'甘其食',value:'ss'},{text:'包客里',value:'sss'}];
+        richPicker(data1,data2,data3);
+    });
+</script>
+</script>
+<script type="text/html" id="tpl_icons">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Icons</h1>
+        <p class="page__desc">图标</p>
+    </div>
+        <div class="icon_sp_area">
+            <i class="richui-icon11"><img src="images/icons/icon11.png"></i>
+            <i class="richui-icon12"><img src="images/icons/icon12.png"></i>
+            <i class="richui-icon13"><img src="images/icons/icon13.png"></i>
+            <i class="richui-icon14"><img src="images/icons/icon14.png"></i>
+            <i class="richui-icon15"><img src="images/icons/icon15.png"></i>
+            <i class="richui-icon16"><img src="images/icons/icon16.png"></i>
+            <i class="richui-icon17"><img src="images/icons/icon17.png"></i>
+            <i class="richui-icon18"><img src="images/icons/icon18.png"></i>
+            <i class="richui-icon19"><img src="images/icons/icon19.png"></i>
+            <i class="richui-icon20"><img src="images/icons/icon20.png"></i>
+            <i class="richui-icon21"><img src="images/icons/icon21.png"></i>
+            <i class="richui-icon22"><img src="images/icons/icon22.png"></i>
+            <i class="richui-icon23"><img src="images/icons/icon23.png"></i>
+            <i class="richui-icon24"><img src="images/icons/icon24.png"></i>
+            <i class="richui-icon25"><img src="images/icons/icon25.png"></i>
+            <i class="richui-icon26"><img src="images/icons/icon26.png"></i>
+            <i class="richui-icon27"><img src="images/icons/icon27.png"></i>
+            <i class="richui-icon28"><img src="images/icons/icon28.png"></i>
+            <i class="richui-icon29"><img src="images/icons/icon29.png"></i><br><br>
+            <i class="richui-icon30"><img src="images/icons/icon30.png"></i>
+            <i class="richui-icon31"><img src="images/icons/icon31.png"></i>
+            <i class="richui-icon32"><img src="images/icons/icon32.png"></i>
+            <i class="richui-icon33"><img src="images/icons/icon33.png"></i>
+            <i class="richui-icon34"><img src="images/icons/icon34.png"></i>
+        </div>
+    </div>
+
+</div>
+</script>
+<script type="text/html" id="tpl_footer">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Footer</h1>
+        <p class="page__desc">页脚</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <div class="richui-footer">
+            <p class="richui-footer__text">Copyright &copy; 2008-2016 richui</p>
+        </div>
+        <br>
+        <br>
+        <div class="richui-footer">
+            <p class="richui-footer__links">
+                <a href="javascript:;;" class="richui-footer__link">底部链接</a>
+            </p>
+            <p class="richui-footer__text">Copyright &copy; 2008-2016 richui</p>
+        </div>
+        <br>
+        <br>
+        <div class="richui-footer">
+            <p class="richui-footer__links">
+                <a href="javascript:;;" class="richui-footer__link">底部链接</a>
+                <a href="javascript:;;" class="richui-footer__link">底部链接</a>
+            </p>
+            <p class="richui-footer__text">Copyright &copy; 2008-2016 richui</p>
+        </div>
+    </div>
+</div>
+</script>
+<script type="text/html" id="tpl_flex">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Flex</h1>
+        <p class="page__desc">Flex布局</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <div class="richui-flex">
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+        </div>
+        <div class="richui-flex">
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+        </div>
+        <div class="richui-flex">
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+        </div>
+        <div class="richui-flex">
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+        </div>
+        <div class="richui-flex">
+            <div><div class="placeholder">richui</div></div>
+            <div class="richui-flex__item"><div class="placeholder">richui</div></div>
+            <div><div class="placeholder">richui</div></div>
+        </div>
+    </div>
+
+</div>
+</script>
+<script type="text/html" id="tpl_loading">
+<div class="page">
+    <div class="page__bd">
+        <div id="richui-loading">
+            <div class="richui-loadingWrap"></div>
+            <div class="richui-loadingTip richui-tipInAnimate">
+                <span class="richui-loadingIcon"></span>
+                <span class="richui-loadingText">努力加载中…</span>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script type="text/html" id="tpl_uploader">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">Uploader</h1>
+        <p class="page__desc">图片上传</p>
+    </div>
+    <div class="page__bd">
+        <div class="richui-gallery" id="gallery">
+            <span class="richui-gallery__img" id="galleryImg"></span>
+            <div class="richui-gallery__opr">
+                <a href="javascript:" class="richui-gallery__del">
+                    <i class="richui-icon-delete richui-icon_gallery-delete"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="richui-cells richui-cells_form">
+            <div class="richui-cell">
+                <div class="richui-cell__bd">
+                    <div class="richui-uploader">
+                        <div class="richui-uploader__bd">
+                            <div class="richui-uploader__input-box">
+                                <input id="uploaderInput" class="richui-uploader__input" type="file" accept="image/*" multiple />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var tmpl = '<li class="richui-uploader__file" style="background-image:url(#url#)"></li>',
+            $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
+            $uploaderInput = $("#uploaderInput"),
+            $uploaderFiles = $("#uploaderFiles")
+            ;
+
+        $uploaderInput.on("change", function(e){
+            var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
+            for (var i = 0, len = files.length; i < len; ++i) {
+                var file = files[i];
+
+                if (url) {
+                    src = url.createObjectURL(file);
+                } else {
+                    src = e.target.result;
+                }
+
+                $uploaderFiles.append($(tmpl.replace('#url#', src)));
+            }
+        });
+        $uploaderFiles.on("click", "li", function(){
+            $galleryImg.attr("style", this.getAttribute("style"));
+            $gallery.fadeIn(100);
+        });
+        $gallery.on("click", function(){
+            $gallery.fadeOut(100);
+        });
+    });
+</script>
+</script>
+<script type="text/html" id="tpl_construction">
+<div class="page">
+    <div class="page__bd">
+        <div class="richui-construction">
+            <img width="100%" src="images/error.png">
+        </div>
+    </div>
+</div>
+</script>
+<script type="text/html" id="tpl_error">
+<div class="page">
+    <div class="page__bd">
+        <div class="richui-error">
+			<img src="images/error2.png"/>
+		    <span>页面开小差,过会儿再试吧！</span>
+        </div>
+    </div>
+</div>
+</script>
+<script type="text/html" id="tpl_list">
+<div class="page">
+    <div class="page__bd">
+        <div class="richui-list">
+			<ul>
+				<li><a href="javascript:;">标题1</a><span><img src="images/right_arrow.png"></span></li>
+				<li><a href="javascript:;">标题2</a><span><img src="images/right_arrow.png"></span></li>
+				<li><a href="javascript:;">标题3</a><span><img src="images/right_arrow.png"></span></li>
+				<li><a href="javascript:;">标题4</a><span><img src="images/right_arrow.png"></span></li>
+				<li><a href="javascript:;">标题5</a><span><img src="images/right_arrow.png"></span></li>
+				<li><a href="javascript:;">标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6</a><span><img src="images/right_arrow.png"></span></li>
+			</ul>
+        </div>
+    </div>
+</div>
+</script>
+<script src="js/zepto.min.js"></script>
+<script src="js/example.js"></script>
+<script src="js/richui.js"></script>
+<script src="js/picker.min.js"></script>
+<script src="js/easydialog.min.js"></script>
+</body>
+</html>
