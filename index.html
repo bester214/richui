@@ -94,18 +94,6 @@
                             </div>
                             <div class="richui-cell__ft"></div>
                         </a>
-                        <a class="richui-cell richui-cell_access js_item" data-id="input" href="javascript:;">
-                            <div class="richui-cell__bd">
-                                <p>Input 输入框</p>
-                            </div>
-                            <div class="richui-cell__ft"></div>
-                        </a>
-                        <a class="richui-cell richui-cell_access js_item" data-id="uploader" href="javascript:;">
-                            <div class="richui-cell__bd">
-                                <p>Uploader 图片上传</p>
-                            </div>
-                            <div class="richui-cell__ft"></div>
-                        </a>
                     </div>
                 </div>
             </li>
@@ -205,54 +193,6 @@
     </div>
 
 </div>
-</script>
-<script type="text/html" id="tpl_input">
-<div class="page">
-    <div class="page__hd">
-        <h1 class="page__title">Input</h1>
-        <p class="page__desc">表单输入</p>
-    </div>
-    <div class="page__bd">
-
-        <div class="richui-cells__title">文本框</div>
-        <div class="richui-cells">
-            <div class="richui-cell">
-                <div class="richui-cell__bd">
-                    <input class="richui-input" type="text" placeholder="请输入文本"/>
-                </div>
-            </div>
-        </div>
-
-        <div class="richui-cells__title">文本域</div>
-        <div class="richui-cells richui-cells_form">
-            <div class="richui-cell">
-                <div class="richui-cell__bd">
-                    <textarea class="richui-textarea" placeholder="请输入文本" rows="3"></textarea>
-                    <div class="richui-textarea-counter"><span>0</span>/200</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-<script type="text/javascript">
-    $(function(){
-        var $tooltips = $('.js_tooltips');
-
-        $('#showTooltips').on('click', function(){
-            if ($tooltips.css('display') != 'none') return;
-
-            // toptips的fixed, 如果有`animation`, `position: fixed`不生效
-            $('.page.cell').removeClass('slideIn');
-
-            $tooltips.css('display', 'block');
-            setTimeout(function () {
-                $tooltips.css('display', 'none');
-            }, 2000);
-        });
-    });
-</script>
 </script>
 <script type="text/html" id="tpl_toast">
 <div class="page">
@@ -515,69 +455,6 @@
         </div>
     </div>
 </div>
-</script>
-<script type="text/html" id="tpl_uploader">
-<div class="page">
-    <div class="page__hd">
-        <h1 class="page__title">Uploader</h1>
-        <p class="page__desc">图片上传</p>
-    </div>
-    <div class="page__bd">
-        <div class="richui-gallery" id="gallery">
-            <span class="richui-gallery__img" id="galleryImg"></span>
-            <div class="richui-gallery__opr">
-                <a href="javascript:" class="richui-gallery__del">
-                    <i class="richui-icon-delete richui-icon_gallery-delete"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="richui-cells richui-cells_form">
-            <div class="richui-cell">
-                <div class="richui-cell__bd">
-                    <div class="richui-uploader">
-                        <div class="richui-uploader__bd">
-                            <div class="richui-uploader__input-box">
-                                <input id="uploaderInput" class="richui-uploader__input" type="file" accept="image/*" multiple />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script type="text/javascript">
-    $(function(){
-        var tmpl = '<li class="richui-uploader__file" style="background-image:url(#url#)"></li>',
-            $gallery = $("#gallery"), $galleryImg = $("#galleryImg"),
-            $uploaderInput = $("#uploaderInput"),
-            $uploaderFiles = $("#uploaderFiles")
-            ;
-
-        $uploaderInput.on("change", function(e){
-            var src, url = window.URL || window.webkitURL || window.mozURL, files = e.target.files;
-            for (var i = 0, len = files.length; i < len; ++i) {
-                var file = files[i];
-
-                if (url) {
-                    src = url.createObjectURL(file);
-                } else {
-                    src = e.target.result;
-                }
-
-                $uploaderFiles.append($(tmpl.replace('#url#', src)));
-            }
-        });
-        $uploaderFiles.on("click", "li", function(){
-            $galleryImg.attr("style", this.getAttribute("style"));
-            $gallery.fadeIn(100);
-        });
-        $gallery.on("click", function(){
-            $gallery.fadeOut(100);
-        });
-    });
-</script>
 </script>
 <script type="text/html" id="tpl_construction">
 <div class="page">
