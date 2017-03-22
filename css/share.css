@@ -45,7 +45,7 @@
 	display:inline-block;
 	width:100%;
 	height:50px;
-	background:url(../images/shareIcon.png) no-repeat;
+	background:url(../img/shareIcon.png) no-repeat;
 	background-size: 50px;
 }*/
 /*微信好友*/
@@ -132,7 +132,7 @@
 }
 .shareIcons span i{
 	display:inline-block;
-	background:url(../images/shareIcons.png) no-repeat;
+	background:url(../img/shareIcons.png) no-repeat;
 	width: 100%;
 	height: 100%;
 	background-size:3.0rem 12.0rem;
