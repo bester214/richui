@@ -124,8 +124,6 @@ function share() {
 			if(is_wp()){ 
 				window.external.notify(JSON.stringify(jsonObj_message)); 
 			}
-			
-			shareCount(channel, 'xx', activityName);
 		})
 	
 		$('#shareBox .j-wx').click(function(){ 
@@ -139,8 +137,6 @@ function share() {
 			if(is_wp()){ 		
 				window.external.notify(JSON.stringify(jsonObj_weixin)); 
 			}
-		
-			shareCount(channel, 'wxhy', activityName);
 		})
 		$('#shareBox .j-wxq').click(function(){ 
 			
@@ -153,8 +149,6 @@ function share() {
 			if(is_wp()){ 
 				window.external.notify(JSON.stringify(jsonObj_friends));
 			}
-			
-			shareCount(channel, 'wxpyq', activityName);
 		})
 		$('#shareBox .j-wb').click(function(){ 
 			
@@ -168,8 +162,6 @@ function share() {
 				// alert('weibo is on the way')
 		        window.external.notify(JSON.stringify(jsonObj_weibo));
 			}
-			
-			shareCount(channel, 'xlwb', activityName);
 		})
 	}
 }
@@ -372,20 +364,3 @@ function applink(){
     }, 500);
   }
 }
-
-//  分享统计, qudao-渠道, type-分享方式, activity-活动编号
-function shareCount(qudao, shareTpe, activity){
-	
-	if(channel!=null && channel!="" && activityName!=null && activityName!=""){
-		// 异步请求
-		$.ajax({url:basePath+"/share/shareCount.do?r=" + Math.random(),
-			type:'post',
-			data:{"type":qudao+'-'+shareTpe, "code":activity},
-			async:true,// 异步
-			timeout:60000,// 超时时间60s
-			dataType:'json',// 返回json
-			success:function(data){},
-			error:function(){}
-		});
-	}
-};
