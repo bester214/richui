@@ -15,7 +15,7 @@
         <h1 class="page__title">
             RichUI
         </h1>
-        <p class="page__desc">RichUI H5前端UI组件库2017 V2.0.2</p>
+        <p class="page__desc">RichUI H5前端UI组件库2017 V2.0.3</p>
     </div>
     <div class="page__bd page__bd_spacing">
         <ul>
@@ -43,6 +43,18 @@
                         <a class="richui-cell richui-cell_access js_item" data-id="Picker" href="javascript:;">
                             <div class="richui-cell__bd">
                                 <p>Picker 选择器</p>
+                            </div>
+                            <div class="richui-cell__ft"></div>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="js_show">
+                <div class="page__category js_categoryInner">
+                    <div class="richui-cells page__category-content">
+                        <a class="richui-cell richui-cell_access js_item" data-id="timePicker" href="javascript:;">
+                            <div class="richui-cell__bd">
+                                <p>时间 选择器</p>
                             </div>
                             <div class="richui-cell__ft"></div>
                         </a>
@@ -346,6 +358,38 @@
         var data2=[{text:'城东',value:'a'},{text:'城南',value:'b'},{text:'城西',value:'c'},{text:'城北',value:'d'}];
         var data3=[{text:'余记',value:'s'},{text:'甘其食',value:'ss'},{text:'包客里',value:'sss'}];
         richPicker(data1,data2,data3);
+    });
+</script>
+</script>
+<script src="js/LCalendar.js"></script>
+<script type="text/html" id="tpl_timePicker">
+<div class="page">
+    <div class="page__hd">
+        <h1 class="page__title">timePicker</h1>
+        <p class="page__desc">时间选择器：Lcalendar</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <input type="text" name="" value="" id="startTime" placeholder="开始时间" readonly>
+        <br>
+        <input type="text" name="" value="" id="endTime" placeholder="结束时间" readonly>
+    </div>
+</div>
+<script type="text/javascript">
+    var startTime = new LCalendar();
+    startTime.init({
+        'trigger': '#startTime', //标签id
+        'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+        'minDate': '2000-1-1', //最小日期
+        'maxDate': '2020-12-31'
+        // 'maxDate': new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() //最大日期
+    });
+    var endTime = new LCalendar();
+    endTime.init({
+        'trigger': '#endTime', //标签id
+        'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+        'minDate': '2000-1-1', //最小日期
+        'maxDate': '2020-12-31'
+        // 'maxDate': new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() //最大日期
     });
 </script>
 </script>
