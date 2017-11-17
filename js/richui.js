@@ -33,6 +33,13 @@ function openWindow4(msg){
     });
 }
 
+function openWindow5(msg){
+    $("#richui-dialog5 .richui-dialog_content").html(msg);
+    easyDialog.open({
+        container : 'richui-dialog5'
+    });
+}
+
 function closeWindow(){
     easyDialog.close();
 };

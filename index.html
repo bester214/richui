@@ -15,7 +15,7 @@
         <h1 class="page__title">
             RichUI
         </h1>
-        <p class="page__desc">RichUI H5前端UI组件库2017 V2.0.3</p>
+        <p class="page__desc">RichUI H5前端UI组件库2017 V2.0.4</p>
     </div>
     <div class="page__bd page__bd_spacing">
         <ul>
@@ -271,6 +271,7 @@
         <a href="javascript:;" class="richui-btn richui-btn_default" id="showDialog2">Dialog样式二</a>
         <a href="javascript:;" class="richui-btn richui-btn_default" id="showDialog3">Dialog样式三</a>
         <a href="javascript:;" class="richui-btn richui-btn_default" id="showDialog4">Dialog样式四</a>
+        <a href="javascript:;" class="richui-btn richui-btn_default" id="showDialog5">Dialog样式五</a>
     </div>
 
 
@@ -312,6 +313,17 @@
                 </div>
             </div>
         </div>
+        <div class="js_dialog" id="dialog5" style="display: none;">
+            <div class="richui-dialog" id="richui-dialog5" style="display:none;">
+                <div class="richui-dialog_errorImg"></div>
+                <div class="richui-dialog_title">办理失败</div>
+                <div class="richui-dialog_content">正在加载中...</div>
+                <div class="richui-dialog_btn2">
+                    <a class="richui-dialog_cancel" href="javascript:;" onclick="closeWindow()">取消</a>
+                    <a class="richui-dialog_sure2" href="javascript:;"  onclick="closeWindow()">确定</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript">
@@ -336,6 +348,9 @@
         });
         $('#showDialog4').on('click', function(){
             openWindow4('我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字');
+        });
+        $('#showDialog5').on('click', function(){
+            openWindow5('我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字我是测试文字');
         });
     });
 </script>

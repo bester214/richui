@@ -206,3 +206,6 @@ to{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}}.date_roll
 .time_roll>div .gear,.ym_roll>div .gear{width:100%;text-indent:-70%}
 .time_roll>div:nth-child(1) .gear,.ym_roll>div:nth-child(1) .gear{width:100%;text-indent:10%}
 .tooth{height:2em;line-height:2em}
+#richui-dialog5 .richui-dialog_cancel{color: #009DF4;background: #fff;}
+#richui-dialog5 .richui-dialog_sure2{color: #009DF4;background: #fff;}
+#richui-dialog5 .richui-dialog_errorImg{background: url(../img/richui-dialog_errorImg.png) no-repeat center 1rem;background-size: 2.0rem 2.0rem;}
