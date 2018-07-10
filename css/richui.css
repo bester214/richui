@@ -144,8 +144,8 @@ input.richui-btn_plain-default{border-width: 1px;background-color: transparent;}
 .richui-dialog_errorImg{height: 3.0rem;line-height:3.0rem;background: url(../img/richui-dialog_errorImg.png) no-repeat center;background-size: 2.0rem 2.0rem;}
 .richui-dialog_rightImg{height: 3.0rem;line-height:3.0rem;background: url(../img/richui-dialog_rightImg.png) no-repeat center;background-size: 2.0rem 2.0rem;}
 .richui-dialog_btn2{display:block;width: 100%;line-height: 2.22rem;font-size: 0.75rem;border-top:1px solid #C0B8AF;}
-.richui-dialog_sure2{float:left;width: 50%;text-align: center;color: #fff;background-color: #009DF4;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border-bottom-right-radius: 5px;text-decoration: none;}
-.richui-dialog_cancel{float: left;width: 50%;text-align: center;color: #000;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border-right:1px solid #C0B8AF;text-decoration: none;}
+.richui-dialog_sure2{float:left;width: 50%;text-align: center;color: #fff;background-color: #fff;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border-bottom-right-radius: 5px;text-decoration: none;color:#009DF4;}
+.richui-dialog_cancel{float: left;width: 50%;text-align: center;color: #009DF4;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border-right:1px solid #C0B8AF;text-decoration: none;}
 .richui-shareBtn{display: block;width: 2.45rem;height: 2.45rem;position: absolute;bottom:4.51rem;left:12.8rem;}
 .richui-shareBtn img{width: 2.45rem;height: 2.45rem}
 .richui-construction{margin-top: 20%}
